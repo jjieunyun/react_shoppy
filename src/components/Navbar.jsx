@@ -8,16 +8,11 @@ import User from "./User";
 export default function Navbar() {
   const [user, setUser] = useState();
 
-  const handleLogin = () => {
-    login();
-  };
-
-  const handleLogout = () => {
-    logout();
-  };
-
   useEffect(() => {
-    onUserStateChange(setUser);
+    onUserStateChange((user) => {
+      console.log(user);
+      setUser(user);
+    });
   }, []);
 
   return (
@@ -32,10 +27,9 @@ export default function Navbar() {
         <Link to="/products/new" className="text-2xl">
           <BsFillPencilFill />
         </Link>
-
         {user && <User user={user} />}
-        {!user && <button onClick={handleLogin}>Login</button>}
-        {user && <button onClick={handleLogout}>Logout</button>}
+        {!user && <button onClick={login}>Login</button>}
+        {user && <button onClick={logout}>Logout</button>}
       </nav>
     </header>
   );
