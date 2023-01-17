@@ -28,16 +28,24 @@ const router = createBrowserRouter([
         element: <AllProducts />,
       },
       {
-        path : '/products/new',
-        element : <ProtectedRoute requireAdmin><NewProduct/></ProtectedRoute>
+        path: "/products/new",
+        element: (
+          <ProtectedRoute requireAdmin>
+            <NewProduct />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/products/:id",
         element: <ProductDetail />,
       },
       {
-        path: "/cart",
-        element:<ProtectedRoute> <MyCart /></ProtectedRoute>,
+        path: "/carts",
+        element: (
+          <ProtectedRoute>
+            <MyCart />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

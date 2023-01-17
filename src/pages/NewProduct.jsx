@@ -88,6 +88,14 @@ export default function NewProduct() {
           required
           onChange={handleChange}
         />
+        <input
+          type="text"
+          name="description"
+          value={product.description ?? ""}
+          placeholder="상품내용"
+          required
+          onChange={handleChange}
+        />
         <Button
           text={isUploading ? "업로드 중....." : "제품 등록하기"}
           disabled={isUploading}
